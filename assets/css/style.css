@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.layout{
+    display: grid;
+    grid-template-areas: 
+        "nav"
+        "filtro"
+        "main"
+        "pager"
+        "footer";
+    grid-template-rows: 1fr 1fr 20fr 1fr 1fr;
+    width: 100%;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.header1{
+    display: flex;
+    flex-direction: row;
+}
+
+.menuOculto{
+    display: none;
+}
+
+.filtro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.producto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: center;
+}
+.paginador{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.paginador >.item{
+    border: 1px solid grey;
+    padding: 8px;
+}
+.paginador>.item>a{
+    text-decoration: none;
+}
+.extremo{
+    font-size: 10px;
+}
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Version Tablet*/
+@media (width>=576px){
+    .layout{
+        width: 100%;
+        grid-template-areas:
+        "nav nav"
+        "filtro main"
+        "filtro pager"
+        "footer footer";
+        grid-template-rows: 1fr 21fr 1fr 1fr;
+        grid-template-columns:2fr 10fr;
+    }
+    nav{
+        grid-area: nav;
+    }
+    .menuDesplegable{
+        display: none;
+    }
+    .menuOculto{
+        display: inline;
+    }
+    .menuOculto>span{
+        display: inline;
+    }
+    .filtro{
+        grid-area: filtro;
+        justify-content: flex-start;
+    }
+    main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        grid-area: main;
+    }
+    .paginador{
+        grid-area: pager;
+    }
+    footer{
+        grid-area: footer;
+    }
+}
+
+/*Version Desktop*/
+@media (width>=992px){
+    .layout{
+        width: 100%;
+        grid-template-areas:
+        "nav filtro"
+        "nav main"
+        "footer pager";
+        grid-template-rows: 1fr 22fr 1fr;
+        grid-template-columns:2fr 10fr;
+    }
+
+    .navbar{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .menuOculto{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    footer>span{
+        text-align: center;
+    }
+    main{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-items: center;
+    }
+}
