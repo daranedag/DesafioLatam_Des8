@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-.layout{
+.contenedor{
     display: grid;
     grid-template-areas: 
         "nav"
@@ -11,16 +11,18 @@
         "main"
         "pager"
         "footer";
-    grid-template-rows: 1fr 1fr 20fr 1fr 1fr;
+    grid-template-rows: 0.5fr 0.5fr 20fr 0.5fr 0.5fr;
     width: 100%;
 }
 
-.navbar{
+.navegador{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: nowrap;
     align-items: center;
+    background-color: green;
+    color: white;
 }
 
 .header1{
@@ -38,6 +40,9 @@
     align-items: center;
     justify-content: center;
 }
+.filtro>p{
+    margin-bottom: 10px;
+}
 
 main{
     display: flex;
@@ -46,6 +51,7 @@ main{
     align-content: space-around;
     flex-wrap: wrap;
     align-items: center;
+    gap: 10px;
 }
 .producto{
     display: flex;
@@ -53,7 +59,25 @@ main{
     justify-content: space-around;
     align-content: space-around;
     align-items: center;
+    border: 1px solid rgb(202, 202, 202);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    padding-bottom: 5px;
 }
+.producto>img{
+    height:250px;
+    width: 250px;
+}
+.producto>p{
+    font-size: 20px;
+    text-wrap: wrap;
+}
+.producto>button{
+    background-color: #009c53;
+    color: white;
+    padding: 6px;
+    border-radius: 10%;
+}
+
 .paginador{
     display: flex;
     flex-direction: row;
@@ -61,33 +85,28 @@ main{
     justify-content: center;
 }
 
-.paginador >.item{
-    border: 1px solid grey;
-    padding: 8px;
-}
-.paginador>.item>a{
-    text-decoration: none;
-}
-.extremo{
-    font-size: 10px;
-}
 footer{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: darkgreen;
+    color: white;
+}
+.no-link{
+    color:white !important;
 }
 
 /*Version Tablet*/
 @media (width>=576px){
-    .layout{
+    .contenedor{
         width: 100%;
         grid-template-areas:
         "nav nav"
         "filtro main"
         "filtro pager"
         "footer footer";
-        grid-template-rows: 1fr 21fr 1fr 1fr;
+        grid-template-rows: 1fr 21fr 0.5fr 1fr;
         grid-template-columns:2fr 10fr;
     }
     nav{
@@ -114,6 +133,7 @@ footer{
     }
     .paginador{
         grid-area: pager;
+        margin-top: 15px;
     }
     footer{
         grid-area: footer;
@@ -122,26 +142,40 @@ footer{
 
 /*Version Desktop*/
 @media (width>=992px){
-    .layout{
+    .contenedor{
         width: 100%;
         grid-template-areas:
         "nav filtro"
         "nav main"
         "footer pager";
-        grid-template-rows: 1fr 22fr 1fr;
+        grid-template-rows: 1fr 10fr 1fr;
         grid-template-columns:2fr 10fr;
     }
 
-    .navbar{
+    .navegador{
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+    }
+    .header1>span{
+        padding-top: 15%;
+        padding-bottom: 10%;
+        text-align: center;
+    }
+    .header1>h3{
+        text-align: center;
+        padding-top: 15%;
+        padding-bottom: 10%;
     }
     .menuOculto{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 20px;
+    }
+    .menuOculto>span{
+        font-size: 20px;
     }
     footer>span{
         text-align: center;
